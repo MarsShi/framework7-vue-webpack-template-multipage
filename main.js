@@ -36,6 +36,19 @@ let mainWindow;
   })
 })*/
 
+function getIPAdress(){  
+    var interfaces = require('os').networkInterfaces();  
+    for(var devName in interfaces){  
+          var iface = interfaces[devName];  
+          for(var i=0;i<iface.length;i++){  
+               var alias = iface[i];  
+               if(alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal){  
+                     return alias.address;  
+               }  
+          }  
+    }  
+} 
+
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -44,7 +57,7 @@ function createWindow() {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadURL('http://192.168.0.99:8080/index.html');
+  mainWindow.loadURL('http://' + getIPAdress() + ':8080/index.html');
 
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
