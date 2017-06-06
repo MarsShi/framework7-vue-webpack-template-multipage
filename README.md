@@ -22,10 +22,10 @@ npm install apicloud -g
 apicloud wifiStart --port 23456
 
 #全量更新
-apicloud wifiSync --project ./ --updateAll true --port 23456
+apicloud wifiSync --project ./apicloud --updateAll true --port 23456
 
 #增量更新
-apicloud wifiSync --project ./ --updateAll false --port 23456
+apicloud wifiSync --project ./apicloud --updateAll false --port 23456
 
 ```
 
