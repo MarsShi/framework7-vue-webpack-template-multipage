@@ -1,4 +1,4 @@
-# Framework7 Vue + Webpack App Template multipage
+﻿# Framework7 Vue + Webpack App Template multipage
 
 A full-featured Framework7 + Vue + Webpack setup with hot-reload & css extraction. Based on [Vue Webpack Boilerplate](https://github.com/vuejs-templates/webpack)
 
@@ -16,7 +16,7 @@ npm run build
 
 #如使用IDE或者插件实现同步，可以忽略以下几部，直接执行npm run dev
 #安装apicloud-cli  
-npm install apicloud -g
+npm install apicloud-cli -g
 
 #开启wifi同步 
 apicloud wifiStart --port 23456
