@@ -4,7 +4,12 @@
   "description": "Framework7 Vue + Webpack starter app template (multipage)",
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "electron": "electron main.js",
+    "wifi":"apicloud wifiStart --port 23456",
+    "sync":"apicloud wifiSync --project ./apicloud --updateAll true --port 23456",
+    "servers":"concurrently \"npm run dev\" \"npm run wifi\"",
+    "start": "npm run electron"
   },
   "repository": {
     "type": "git",
@@ -31,7 +36,8 @@
   "dependencies": {
     "framework7": "^1.6.4",
     "framework7-vue": "^0.9.2",
-    "vue": "^2.2.4"
+    "vue": "^2.2.4",
+    "concurrently":"^3.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -67,7 +73,8 @@
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
     "webpack-merge": "^2.6.1",
-    "framework7-icons": "^0.9.0"
+    "framework7-icons": "^0.9.0",
+    "nconf": "^0.8.4"
   },
   "engines": {
     "node": ">= 4.0.0",
