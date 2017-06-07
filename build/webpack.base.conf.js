@@ -4,7 +4,7 @@ var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
 var glob = require('glob');
-var entries = getEntry('./src/**/*.js'); // 获得入口js文件
+var entries = getEntry('./src/module/**/*.js'); // 获得入口js文件
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -27,6 +27,9 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      '@js': resolve('src') + '/assets/js',
+      '@css': resolve('src') + '/assets/css',
+      '@components': resolve('src') + '/components'
     }
   },
   module: {

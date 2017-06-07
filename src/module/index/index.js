@@ -19,7 +19,7 @@ import Framework7ThemeColors from 'framework7/dist/css/framework7.material.color
 import App from './app'
 
 // Import Css File
-import '../../assets/a.css'
+import '@css/a.css'
 
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue)

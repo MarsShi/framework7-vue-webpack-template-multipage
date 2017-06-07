@@ -51,7 +51,7 @@ function getEntry(globPath) {
   return entries;
 }
 
-var pages = getEntry('./src/**/*.html');
+var pages = getEntry('./src/module/**/*.html');
 
 for (var pathname in pages) {
   // 配置生成的html文件，定义路径等
