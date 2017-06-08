@@ -1,28 +1,17 @@
-// Import Vue
-import Vue from 'vue'
 
-// Import F7
-import Framework7 from 'framework7'
-
-// Import F7 Vue Plugin
-import Framework7Vue from 'framework7-vue'
-
-// Import F7 iOS Theme Styles
-import Framework7Theme from 'framework7/dist/css/framework7.ios.min.css'
-import Framework7ThemeColors from 'framework7/dist/css/framework7.ios.colors.min.css'
-/* OR for Material Theme:
-import Framework7Theme from 'framework7/dist/css/framework7.material.min.css'
-import Framework7ThemeColors from 'framework7/dist/css/framework7.material.colors.min.css'
-*/
+import { 
+    Vue,
+    Framework7,
+    Framework7Theme,
+    Framework7ThemeColors,
+    Framework7Fonts
+} from '@js/lib.js'
 
 // Import App Component
 import App from './app'
 
 // Import Css File
-import '@css/a.css'
-
-// Init F7 Vue Plugin
-Vue.use(Framework7Vue)
+import '@css/index.css'
 
 // Init App
 new Vue({
@@ -38,5 +27,8 @@ new Vue({
     // Register App Component
     components  : {
         App     : App
+    },
+    apiready    : function(){
+        alert('hello,apicloud');
     }
 });

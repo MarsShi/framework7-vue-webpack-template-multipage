@@ -1,0 +1,29 @@
+.navbar-ios7{
+	padding-top: 20px;
+	height: 64px;
+}
+.navbar-ios7 .navbar-inner{
+	top: auto;
+	bottom: 0;
+	height: 44px;
+}
+.page-content-ios7,
+.navbar-fixed .page-content-ios7, 
+.navbar-through .page-content-ios7{
+	padding-top: 64px;
+}
+
+.navbar-android-4{
+	padding-top: 25px;
+	height: 69px;
+}
+.navbar-android-4 .navbar-inner{
+	top: auto;
+	bottom: 0;
+	height: 44px;
+}
+.page-content-android-4,
+.navbar-fixed .page-content-android-4, 
+.navbar-through .page-content-android-4{
+	padding-top: 69px;
+}
