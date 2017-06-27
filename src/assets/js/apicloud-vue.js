@@ -48,7 +48,7 @@ export default {
         }
 
         var apiOnclick = function(){
-            $(document).on('click', 'a.link.external', function(e){
+            $(document).on('click', 'a.link.external.openwin', function(e){
                 var url = $(this).attr('href');
                 if(window.api){
                     apiOpenWin(url);
@@ -56,6 +56,10 @@ export default {
                 }else{
                     window.location.href = url;
                 }
+            });
+            $(document).on('click', 'a.link.external.back', function(e){
+                api.closeWin();
+                e.preventDefault();
             });
         }
 
@@ -67,6 +71,7 @@ export default {
             mounted: function () {
                 var self = this;
                 if (self === self.$root) {
+                    //$(self.$el).hide();
                     window.apiready = function(){
                         var header = $('.navbar');
                         var content = $('.page-content');
@@ -77,6 +82,8 @@ export default {
                         if(typeof self.$options.apiready == 'function'){
                             self.$options.apiready.call(this);
                         }
+
+                        //$(self.$el).show();
                     }
                 }
             }
