@@ -80,7 +80,7 @@ export default {
                         apiOnclick();
 
                         if(typeof self.$options.apiready == 'function'){
-                            self.$options.apiready.call(this);
+                            self.$options.apiready.call(self);
                         }
 
                         //$(self.$el).show();
