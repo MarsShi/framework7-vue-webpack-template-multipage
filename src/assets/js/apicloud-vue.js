@@ -40,18 +40,32 @@ export default {
         var apiOpenWin = function(url, name, params){
             name = name ? name : (new Date()).valueOf();
             params = params ? params : {};
+            params.url = url;
+            params.win_name = name + '-frame';
+
             window.api.openWin({
                 name        : name,
-                url         : url,
-                pageParam   : params
+                url         : '../static/frame.html',
+                pageParam   : params,
+                delay       : 200
             });
+
+            api.showProgress({
+                title       : '',
+                text        : ''
+            });
+            setTimeout(function(){
+                api.hideProgress();
+            }, 200);
         }
 
         var apiOnclick = function(){
             $(document).on('click', 'a.link.external.openwin', function(e){
-                var url = $(this).attr('href');
+                var url = $(this).attr('href'),
+                    params = $(this).attr('data-params');
+                params = eval('(' +  params + ')');
                 if(window.api){
-                    apiOpenWin(url);
+                    apiOpenWin(url, '', params);
                     e.preventDefault();
                 }else{
                     window.location.href = url;
@@ -73,10 +87,10 @@ export default {
                 if (self === self.$root) {
                     //$(self.$el).hide();
                     window.apiready = function(){
-                        var header = $('.navbar');
-                        var content = $('.page-content');
-                        fixStatusBar(header);
-                        fixContent(content);
+                        // var header = $('.navbar');
+                        // var content = $('.page-content');
+                        // fixStatusBar(header);
+                        // fixContent(content);
                         apiOnclick();
 
                         if(typeof self.$options.apiready == 'function'){
