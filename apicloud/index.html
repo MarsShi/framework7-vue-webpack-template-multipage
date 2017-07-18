@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta charset="utf-8"/>
+  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+  	<meta name="apple-mobile-web-app-capable" content="yes"/>
+  	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  	<meta name="format-detection" content="telephone=no, address=no"/> 
 	<title>My App</title>
 	<style type="text/css">
 		body{
@@ -17,9 +18,15 @@
 </body>
 <script type="text/javascript">
 	apiready = function(){
-		api.openWin({
-			name: 'index',
-			url: 'http://192.168.0.99:8080/pages/index.html'
+		api.openFrame({
+			name	: 'index',
+			url 	: 'http://192.168.0.99:8080/pages/index.html',
+			rect	: {
+				x 	: 0,
+				y 	: 0,
+				w 	: 'auto',
+				h 	: 'auto'
+			}
 		});
 	}
 </script>
