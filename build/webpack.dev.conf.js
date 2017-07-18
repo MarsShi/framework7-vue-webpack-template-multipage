@@ -4,6 +4,7 @@ var webpack = require('webpack')
 var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
@@ -20,6 +21,11 @@ module.exports = merge(baseWebpackConfig, {
   },
   // cheap-module-eval-source-map is faster for development
   devtool: '#cheap-module-eval-source-map',
+  output: {
+    path: config.build.assetsRoot,
+    filename: utils.assetsPath('js/[name].js'),
+    chunkFilename: utils.assetsPath('js/[id].js')
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env
@@ -33,7 +39,14 @@ module.exports = merge(baseWebpackConfig, {
     //   template: 'index.html',
     //   inject: true
     // }),
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: config.build.assetsSubDirectory + 'static',
+        ignore: ['.*']
+      }
+    ])
   ]
 })
 
@@ -56,7 +69,7 @@ var pages = getEntry('./src/module/**/*.html');
 for (var pathname in pages) {
   // 配置生成的html文件，定义路径等
   var conf = {
-    filename: pathname + '.html',
+    filename: 'pages/' + pathname + '.html',
     template: pages[pathname], // 模板路径
     chunks: [pathname, 'vendor', 'manifest'], // 每个html引用的js模块
     inject: true              // js插入位置
